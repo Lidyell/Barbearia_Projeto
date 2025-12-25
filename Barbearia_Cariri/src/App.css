@@ -1,0 +1,37 @@
+:root {
+  --preto: #0B0B0B;
+  --dourado: #C9A24D;
+  --branco: #FFFFFF;
+  --cinza: #1C1C1C;
+  --dourado-metalico: #D3AF37;
+  --fonte-logo: 'Playwrite', Arial, sans-serif;
+  --fonte-texto: 'Playfair Display',  serif;
+}
+
+@font-face {
+  font-family: "Playwrite";
+  src: url("./assets/fonts/PlaywriteNO-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+html {
+  font-size: 16px;
+}
+
+body {
+  min-height: 100vh;
+  background-image: url(../public/image/image1.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--branco);
+  padding-top: 60px;
+}

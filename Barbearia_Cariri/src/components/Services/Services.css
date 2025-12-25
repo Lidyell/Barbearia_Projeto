@@ -1,0 +1,101 @@
+.container-1 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 80px 20px;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.titulo-services {
+    font-size: 2.4rem;
+    font-family: var(--fonte-logo);
+    color: var(--dourado);
+    text-align: center;
+    font-weight: 800;
+}
+
+.bloco-services {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 48px;
+    border-radius: 18px;
+}
+
+.item-service {
+    width: 280px;
+    height: 240px;
+    border: 2px solid var(--dourado);
+    border-radius: 18px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    color: white;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.55);
+    background-blend-mode: overlay;
+}
+
+#Corte {
+    background-image: url(https://img.freepik.com/fotos-premium/o-processo-de-corte-de-cabelo-masculino-em-uma-barbearia-estilosa_199683-145.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+#Barba {
+    background-image: url(https://pellecapelli.com.br/wp-content/uploads/2020/03/capa-barba.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+#CorteBarba {
+    background-image: url(https://alfalooksstore.com.br/wp-content/uploads/2020/09/como-fazer-barba.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+#CabeloInfantil {
+    background-image: url(https://s2.glbimg.com/WHTl_jXX9HAdlPfJSgEgOTydLQw=/620x480/e.glbimg.com/og/ed/f/original/2020/04/27/gettyimages-180981325.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+#Sobrancelha {
+    background-image: url(https://img.freepik.com/fotos-gratis/de-cima-maos-barbeando-homem_23-2147778913.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+#DescolorirCabelo {
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx6az03pstPYNUZC3DvAmb7dPVv0tVcS8Jtg&s);
+    background-size: cover;
+    background-position: center;
+}
+
+.item-service h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.item-service p {
+    font-size: 1.2rem;
+    color: var(--dourado);
+    font-weight: 800;
+}
+
+.item-service:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 12px 30px rgba(201, 162, 77, 0.4);
+    opacity: 0.85;
+}
