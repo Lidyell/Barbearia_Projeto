@@ -76,12 +76,6 @@ function Navbar({ variant = "default" }) {
               Agenda
             </Link>
           </li>
-
-          <li>
-            <Link to="/Cadastro" className="btn" onClick={closeMenu}>
-              Entrar
-            </Link>
-          </li>
         </ul>
       </nav>
     </header>

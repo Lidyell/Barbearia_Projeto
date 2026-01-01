@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 function CadastroTela() {
-    const [mostrarTipo, setMostrarTipo] = useState(true);
+
     const [tipoUsuario, setTipoUsuario] = useState("");
 
     return (
@@ -22,33 +22,16 @@ function CadastroTela() {
                     <input type="password" placeholder="Senha" />
                     <input type="password" placeholder="Confirmar senha" />
 
-                    <button
-                        type="button"
-                        className="btn-escolha"
-                        onClick={() => setMostrarTipo(!mostrarTipo)}
-                    >
-                        Selecionar tipo de conta
-                    </button>
 
-                    {mostrarTipo && (
-                        <div className="tipo-usuario">
-                            <button
-                                type="button"
-                                className={tipoUsuario === "cliente" ? "ativo" : ""}
-                                onClick={() => setTipoUsuario("cliente")}
-                            >
-                                Cliente
-                            </button>
-
-                            <button
-                                type="button"
-                                className={tipoUsuario === "profissional" ? "ativo" : ""}
-                                onClick={() => setTipoUsuario("profissional")}
-                            >
-                                Profissional
-                            </button>
-                        </div>
-                    )}
+                    <div className="tipo-usuario">
+                        <button
+                            type="button"
+                            className={tipoUsuario === "profissional" ? "ativo" : ""}
+                            onClick={() => setTipoUsuario("profissional")}
+                        >
+                            Profissional
+                        </button>
+                    </div>
 
                     <button className="btn-cadastro">
                         Cadastrar
@@ -56,7 +39,7 @@ function CadastroTela() {
                 </form>
 
                 <p className="login-link">
-                    Já tem uma conta? <Link to="/login">Entrar</Link>
+                    Já tem uma conta? <Link to="/Login">Entrar</Link>
                 </p>
 
             </div>

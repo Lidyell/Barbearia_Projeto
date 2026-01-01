@@ -9,7 +9,7 @@ function Section1() {
           <h3>
             Sua experiência de barbearia de confiança no coração do Cariri.
           </h3>
-          <p>
+          <p className="paragrafo-1">
             Na Barbearia Castelo Branco, oferecemos cortes de cabelo modernos,
             barbas bem cuidadas e um ambiente acolhedor para você relaxar. Nossa
             equipe de barbeiros experientes está pronta para proporcionar um

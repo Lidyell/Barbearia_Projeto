@@ -40,6 +40,7 @@
 
 .bloco p {
   color: rgba(255, 255, 255, 0.85);
+  font-size: large;
 }
 
 .bloco .btn-1 {
