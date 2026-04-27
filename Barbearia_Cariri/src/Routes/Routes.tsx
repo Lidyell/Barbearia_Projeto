@@ -1,12 +1,12 @@
-import "./App.css"
-import Home from "./Pages/Home.tsx"
-import Cadastro from "./Pages/Cadastro.tsx"
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Agenda from "./Pages/Agenda.tsx"
-import Login from "./components/Cadastro&Login/Login.tsx"
-import Painel from "./components/Painel/Painel.tsx"
+import "../App.css";
+import Home from "../FrontEnd/Pages/Home.tsx";
+import Cadastro from "../FrontEnd/Pages/Cadastro.tsx";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Agenda from "../FrontEnd/Pages/Agenda.tsx";
+import Login from "../FrontEnd/components/Cadastro/Login.tsx";
+import Painel from "../FrontEnd/components/Painel_Admin/Painel_Admin.tsx";
 
-function Router() {
+export default function Router() {
   return (
     <BrowserRouter>
       <Routes>
@@ -18,7 +18,5 @@ function Router() {
         <Route path="/painel" element={<Painel />} />
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
-
-export default Router

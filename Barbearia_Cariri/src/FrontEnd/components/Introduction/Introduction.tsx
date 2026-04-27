@@ -1,6 +1,8 @@
-import "./Section1.css";
+import "./Introduction.css";
+import { Link } from "react-router-dom";
+function Introduction() {
 
-function Section1() {
+
   return (
     <section className="bloco">
       <div className="container_1">
@@ -17,9 +19,9 @@ function Section1() {
             estiloso.
           </p>
           <br />
-          <a href="#" className="btn-1">
-            Agende seu horário
-          </a>
+
+            <Link to="/agenda" className="btn-1">Agende seu horário</Link>
+
         </div>
         <iframe
           className="Maps"
@@ -31,4 +33,4 @@ function Section1() {
   );
 }
 
-export default Section1;
+export default Introduction;

@@ -1,15 +1,15 @@
-import CadastroTela from "../components/Cadastro&Login/CadastroTela";
+import Agendamento from "../components/Agendamento/Agentamento";
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
 
-function Entrar() {
+function Agenda() {
   return (
     <>
       <Navbar />
-      <CadastroTela />
+      <Agendamento />
       <Footer />
     </>
   );
 }
 
-export default Entrar;
+export default Agenda;
