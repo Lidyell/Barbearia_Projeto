@@ -31,11 +31,10 @@ function Login() {
 
       if (response.ok) {
         const data = await response.json();
-
-        // salva usuário no navegador
         localStorage.setItem("usuario", JSON.stringify(data));
+        console.log("Login bem-sucedido:", data);
 
-        // redireciona para o painel
+  
         navigate("/painel");
       } else {
         alert("Email ou senha inválidos");

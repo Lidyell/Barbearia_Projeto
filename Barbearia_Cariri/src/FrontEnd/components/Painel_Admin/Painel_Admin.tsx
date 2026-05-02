@@ -7,10 +7,10 @@ import { useNavigate } from 'react-router-dom'
 export default function Painel() {
 
   const [nome, setNome] = useState<string>("")
+  const [mostrarTodos, setMostrarTodos] = useState(false)
   const navigate = useNavigate()
 
   useEffect(() => {
-
     const usuarioSalvo = localStorage.getItem("usuario")
 
     if (!usuarioSalvo) {
@@ -20,7 +20,6 @@ export default function Painel() {
 
     const usuario = JSON.parse(usuarioSalvo)
     setNome(usuario.nome)
-
   }, [])
 
   const logout = () => {
@@ -28,36 +27,75 @@ export default function Painel() {
     navigate("/login")
   }
 
+  // 📊 DADOS (simulação)
+  const dados = [
+    {
+      cliente: "João Silva",
+      servico: "Corte de cabelo",
+      data: "12/01",
+      hora: "14:00",
+      profissional: "João",
+      status: "confirmado"
+    },
+    {
+      cliente: "Carlos Souza",
+      servico: "Barba",
+      data: "12/01",
+      hora: "15:00",
+      profissional: "Pedro",
+      status: "pendente"
+    },
+    {
+      cliente: "Lucas Lima",
+      servico: "Corte + Barba",
+      data: "12/01",
+      hora: "16:00",
+      profissional: "João",
+      status: "confirmado"
+    }
+  ]
+
   return (
     <>
       <Navbar />
 
       <section className="dashboard-container">
 
-        {/* SAUDAÇÃO */}
-        <h1 className="dashboard-greeting">Olá, {nome}</h1>
-        <h2 className="dashboard-main-title">Painel de Controle</h2>
+        {/* HEADER */}
+        <div className="dashboard-header">
+          <div className="header-left">
+            <h1 className="dashboard-main-title">Painel de Controle</h1>
+          </div>
 
-        {/* BOTÃO LOGOUT */}
-        <button onClick={logout} className="btn-logout">
-          Sair
-        </button>
+          <div className="header-right">
+            <div className="user-info">
+              <span className="user-avatar">
+                {nome?.charAt(0).toUpperCase()}
+              </span>
+              <span className="user-name">{nome}</span>
+            </div>
+
+            <button onClick={logout} className="btn-logout">
+              Sair
+            </button>
+          </div>
+        </div>
 
         {/* CARDS */}
         <div className="dashboard-cards">
           <div className="card">
             <span>Agendamentos Hoje</span>
-            <strong>12</strong>
+            <h5>12</h5>
           </div>
 
           <div className="card">
             <span>Faturamento Mensal</span>
-            <strong>R$ 2.450</strong>
+            <h5>R$ 2.450</h5>
           </div>
 
           <div className="card">
             <span>Clientes Atendidos</span>
-            <strong>86</strong>
+            <h5>86</h5>
           </div>
         </div>
 
@@ -65,29 +103,48 @@ export default function Painel() {
         <div className="dashboard-section">
           <h2>Agendamentos Recentes</h2>
 
-          <table className="dashboard-table">
-            <thead>
-              <tr>
-                <th>Cliente</th>
-                <th>Serviço</th>
-                <th>Data</th>
-                <th>Hora</th>
-                <th>Profissional</th>
-                <th>Status</th>
-              </tr>
-            </thead>
+          <div className="table-wrapper">
+            <table className="dashboard-table">
+              <thead>
+                <tr>
+                  <th>Cliente</th>
+                  <th>Serviço</th>
+                  <th>Data</th>
+                  <th>Hora</th>
+                  <th>Profissional</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
 
-            <tbody>
-              <tr>
-                <td>João Silva</td>
-                <td>Corte de cabelo</td>
-                <td>12/01</td>
-                <td>14:00</td>
-                <td>João</td>
-                <td className="status confirmado">Confirmado</td>
-              </tr>
-            </tbody>
-          </table>
+              <tbody>
+                {(mostrarTodos ? dados : dados.slice(0, 1)).map((item, index) => (
+                  <tr key={index}>
+                    <td data-label="Cliente">{item.cliente}</td>
+                    <td data-label="Serviço">{item.servico}</td>
+                    <td data-label="Data">{item.data}</td>
+                    <td data-label="Hora">{item.hora}</td>
+                    <td data-label="Profissional">{item.profissional}</td>
+                    <td data-label="Status" className={`status ${item.status}`}>
+                      {item.status}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* BOTÃO VER MAIS */}
+          {dados.length > 1 && (
+            <div className="ver-mais-container">
+              <button
+                className="ver-mais-btn"
+                onClick={() => setMostrarTodos(!mostrarTodos)}
+              >
+                {mostrarTodos ? "Ver menos ↑" : "Ver mais ↓"}
+              </button>
+            </div>
+          )}
+
         </div>
 
       </section>

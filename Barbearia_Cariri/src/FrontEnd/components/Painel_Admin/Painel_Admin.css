@@ -1,64 +1,99 @@
 .dashboard-container {
   min-height: 100vh;
-  padding: 48px;
-  background: linear-gradient(160deg, #0b0b0b, #151515);
+  padding: clamp(20px, 5vw, 48px);
+  background: radial-gradient(circle at top, #1a1a1a, #0b0b0b 70%);
   color: #eaeaea;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
-/* SAUDAÇÃO */
-.dashboard-greeting {
-  font-size: 18px;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 6px;
+/* HEADER */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-/* TÍTULO PRINCIPAL */
+.header-left {
+  display: flex;
+  flex-direction: column;
+}
+
 .dashboard-main-title {
-  font-size: 36px;
-  font-weight: 600;
-  letter-spacing: 0.6px;
-  margin-bottom: 48px;
-  position: relative;
+  font-size: clamp(26px, 5vw, 38px);
+  font-weight: 700;
 }
 
-.dashboard-main-title::after {
-  content: "";
-  display: block;
-  width: 100px;
-  height: 3px;
-  margin-top: 10px;
-  border-radius: 2px;
-  background: linear-gradient(
-    90deg,
-    #C9A24D,
-    #D3AF37
-  );
+/* USER */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.05);
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #d3af37, #ffd700);
+  color: black;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.user-name {
+  font-size: 13px;
+}
+
+/* BOTÃO */
+.btn-logout {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, #d3af37, #ffd700);
+  color: black;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.btn-logout:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(211,175,55,0.4);
 }
 
 /* CARDS */
 .dashboard-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 24px;
-  margin-bottom: 56px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
 }
 
 .card {
   background: linear-gradient(145deg, #111, #0d0d0d);
-  border: 1px solid rgba(201, 162, 77, 0.25);
-  padding: 26px;
+  border: 1px solid rgba(211,175,55,0.15);
+  padding: 24px;
   border-radius: 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6);
+  transform: translateY(-6px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
 }
 
 .card span {
@@ -66,73 +101,53 @@
   opacity: 0.7;
 }
 
-.card strong {
-  font-size: 26px;
-  font-weight: 600;
+.card h5 {
+  font-size: 24px;
   color: #D3AF37;
 }
 
-/* SEÇÕES */
+/* SEÇÃO */
 .dashboard-section {
-  margin-bottom: 56px;
+  margin-bottom: 40px;
 }
 
 .dashboard-section h2 {
-  font-size: 22px;
-  font-weight: 500;
-  margin-bottom: 22px;
-  letter-spacing: 0.3px;
-  position: relative;
-  padding-left: 14px;
-}
-
-.dashboard-section h2::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 4px;
-  height: 60%;
-  border-radius: 2px;
-  background: #C9A24D;
+  margin-bottom: 16px;
 }
 
 /* TABELA */
-.dashboard-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: #111;
-  border-radius: 16px;
-  overflow: hidden;
+.table-wrapper {
+  overflow-x: auto;
 }
 
-.dashboard-table th,
-.dashboard-table td {
-  padding: 16px 18px;
-  font-size: 14px;
-  text-align: left;
+.dashboard-table {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+  background: #111;
+  border-radius: 14px;
+  overflow: hidden;
 }
 
 .dashboard-table th {
   background: #0d0d0d;
   color: #D3AF37;
-  font-weight: 500;
+}
+
+.dashboard-table th,
+.dashboard-table td {
+  padding: 14px;
 }
 
 .dashboard-table tr {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 .dashboard-table tbody tr:hover {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255,255,255,0.03);
 }
 
 /* STATUS */
-.status {
-  font-weight: 600;
-}
-
 .status.confirmado {
   color: #2ecc71;
 }
@@ -141,30 +156,79 @@
   color: #f1c40f;
 }
 
-/* FINANCEIRO */
-.financeiro {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
-}
-
-.financeiro div {
-  background: linear-gradient(145deg, #111, #0d0d0d);
-  border: 1px solid rgba(201, 162, 77, 0.25);
-  padding: 26px;
-  border-radius: 18px;
+/* BOTÃO VER MAIS */
+.ver-mais-container {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  justify-content: center;
+  margin-top: 20px;
 }
 
-.financeiro span {
-  font-size: 13px;
-  opacity: 0.7;
-}
-
-.financeiro strong {
-  font-size: 24px;
-  font-weight: 600;
+.ver-mais-btn {
+  background: transparent;
+  border: none;
   color: #D3AF37;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 4px;
+  font-size: 14px;
+}
+
+/* linha animada */
+.ver-mais-btn::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: #D3AF37;
+  transition: 0.3s;
+  transform: translateX(-50%);
+}
+
+.ver-mais-btn:hover::after {
+  width: 100%;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .dashboard-table {
+    min-width: 100%;
+  }
+
+  .dashboard-table thead {
+    display: none;
+  }
+
+  .dashboard-table tr {
+    display: block;
+    margin-bottom: 14px;
+    padding: 12px;
+    background: #111;
+    border-radius: 12px;
+  }
+
+  .dashboard-table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+  }
+
+  .dashboard-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #D3AF37;
+  }
 }
