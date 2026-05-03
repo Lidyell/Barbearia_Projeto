@@ -30,21 +30,36 @@ Projeto web moderno desenvolvido para gerenciamento e agendamento de serviços d
 ## 📂 Estrutura do projeto
 
 ```
-src/
+Barbearia_Cariri/
 │
-├── components/
-│   ├── Navbar/
-│   ├── Footer/
-│   ├── ScrollToTop/
+├── public/
 │
-├── pages/
-│   ├── Painel_Admin/
-│   ├── Login/
-│   ├── Cadastro/
+├── src/
+│   ├── assets/
+│   │   ├── fonts/
 │
-├── styles/
+│   ├── components/
+│   │   ├── Agendamento/
+│   │   ├── Cadastro/
+│   │   ├── Cards/
+│   │   ├── Footer/
+│   │   ├── Introduction/
+│   │   ├── LoadingScreen/
+│   │   ├── Navbar/
+│   │   ├── Painel_Admin/
+│   │   ├── ScrollTop/
 │
-└── App.tsx
+│   ├── pages/
+│
+│   ├── routes/
+│   │   ├── Routes.tsx
+│
+│   ├── App.tsx
+│   ├── main.tsx
+│
+├── index.html
+├── package.json
+├── vite.config.ts
 ```
 
 ---
