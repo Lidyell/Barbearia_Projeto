@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+
 :root {
   --preto: #0B0B0B;
   --dourado: #C9A24D;
@@ -5,7 +8,8 @@
   --cinza: #1C1C1C;
   --dourado-metalico: #D3AF37;
   --fonte-logo: 'Playwrite', Arial, sans-serif;
-  --fonte-texto: 'Playfair Display',  serif;
+  --fonte-titulo: 'Playfair Display',  serif;
+  --fonte-texto: 'Poppins',  sans-serif;
 }
 
 @font-face {

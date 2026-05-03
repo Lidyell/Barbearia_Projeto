@@ -1,6 +1,6 @@
 import './Cards.css'
 
-function Services1(){
+function Cards_Services(){
     return(
         <section className='container-1'>
             <h1 className="titulo-services">Serviços</h1>
@@ -37,4 +37,4 @@ function Services1(){
 
 }
 
-export default Services1
+export default Cards_Services;
