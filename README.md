@@ -53,13 +53,13 @@ src/
 ### 1. Clone o repositório
 
 ```
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/Lidyell/Barbearia_Projeto.git
 ```
 
 ### 2. Acesse a pasta
 
 ```
-cd nome-do-projeto
+cd Barbearia_Projeto
 ```
 
 ### 3. Instale as dependências
@@ -68,7 +68,12 @@ cd nome-do-projeto
 npm install
 ```
 
-### 4. Rode o projeto
+### 4. Acesse a pasta
+```
+cd Barbearia_Cariri
+```
+
+### 5. Rode o projeto
 
 ```
 npm run dev
