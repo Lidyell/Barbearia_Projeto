@@ -22,7 +22,8 @@ Projeto web moderno desenvolvido para gerenciamento e agendamento de serviços d
 * Vite
 * CSS3 (com design responsivo)
 * React Router DOM
-* LocalStorage (armazenamento temporário)
+* SpringBoot - Java
+* SupaBase - PostgreSQL
 
 ---
 
@@ -86,6 +87,11 @@ npm run dev
 ```
 npm run build
 ```
+## 🔗 API do Projeto
+
+A API deste sistema está em:
+
+👉 https://github.com/Lidyell/API_CADASTRO
 
 ---
 
