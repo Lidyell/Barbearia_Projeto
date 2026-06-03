@@ -20,7 +20,7 @@ function Login() {
     };
 
     try {
-      const response = await fetch("https://projeto-production-8f50.up.railway.app/usuario/login", {
+      const response = await fetch("https://api-cadastro-dqny.onrender.com/usuario/login", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

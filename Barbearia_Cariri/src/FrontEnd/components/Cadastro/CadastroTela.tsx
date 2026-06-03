@@ -18,7 +18,7 @@ function CadastroTela() {
         };
 
         try {
-            const response = await fetch("https://projeto-production-8f50.up.railway.app/usuario", {
+            const response = await fetch("https://api-cadastro-dqny.onrender.com/usuario", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
