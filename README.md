@@ -3,8 +3,13 @@
 Projeto web moderno desenvolvido para gerenciamento e agendamento de serviços de uma barbearia. A aplicação oferece uma interface elegante e responsiva, proporcionando uma ótima experiência tanto para clientes quanto para administradores do estabelecimento.
 
 ---
+
+## ⚠️ Observação:
+
+Este projeto foi desenvolvido exclusivamente para fins de aprendizado e prática de novas tecnologias, não possuindo qualquer finalidade comercial ou objetivo financeiro.
+
 ## 🔗 Link do Projeto:
-https://projeto-barbeariajua.netlify.app
+https://barbeariacariri.netlify.app/
 
 ## 🚀 Funcionalidades
 
@@ -24,8 +29,9 @@ https://projeto-barbeariajua.netlify.app
 * Vite
 * CSS3 (com design responsivo)
 * React Router DOM
-* SpringBoot - Java
+* Java - Spring Boot
 * SupaBase - PostgreSQL
+* Deploy do Site - Netlify
 
 ---
 
