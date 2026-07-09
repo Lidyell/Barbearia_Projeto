@@ -54,12 +54,12 @@ Barbearia_Cariri/
 │   │   ├── Introduction/
 │   │   ├── LoadingScreen/
 │   │   ├── Navbar/
-│   │   ├── Painel_Admin/
 │   │   ├── ScrollTop/
 │
 │   ├── pages/
 │
 │   ├── routes/
+        ├── CSS/
 │   │   ├── Routes.tsx
 │
 │   ├── App.tsx
