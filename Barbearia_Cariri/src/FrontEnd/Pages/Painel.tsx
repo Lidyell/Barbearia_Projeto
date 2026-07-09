@@ -1,6 +1,6 @@
-import './Painel_Admin.css'
-import Navbar from '../Navbar/Navbar'
-import Footer from '../Footer/Footer'
+import './CSS/Painel_Admin.css'
+import Navbar from '../components/Navbar/Navbar.tsx'
+import Footer from '../components/Footer/Footer'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -57,8 +57,8 @@ export default function Painel() {
 
   return (
     <>
-      <Navbar />
-
+      
+      <Navbar/>
       <section className="dashboard-container">
 
         {/* HEADER */}
@@ -148,8 +148,7 @@ export default function Painel() {
         </div>
 
       </section>
-
-      <Footer />
+      <Footer/>
     </>
   )
 }
