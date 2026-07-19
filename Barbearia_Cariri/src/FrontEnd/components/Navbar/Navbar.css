@@ -17,10 +17,14 @@
   font-family: var(--fonte-logo);
   text-decoration: none;
   transition: color 0.3s;
+  -webkit-tap-highlight-color: transparent;
+
 }
 
 .logo a:hover {
   color: var(--branco);
+  -webkit-tap-highlight-color: transparent;
+
 }
 
 .menu {
