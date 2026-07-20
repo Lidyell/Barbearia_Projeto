@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap');
 
-
 :root {
   --preto: #0B0B0B;
   --dourado: #C9A24D;
@@ -8,8 +7,8 @@
   --cinza: #1C1C1C;
   --dourado-metalico: #D3AF37;
   --fonte-logo: 'Playwrite', Arial, sans-serif;
-  --fonte-titulo: 'Playfair Display',  serif;
-  --fonte-texto: 'Poppins',  sans-serif;
+  --fonte-titulo: 'Playfair Display', serif;
+  --fonte-texto: 'Poppins', sans-serif;
 }
 
 @font-face {
@@ -24,9 +23,25 @@
   padding: 0;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
-
 }
 
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--dourado);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dourado-metalico);
+}
 
 html {
   font-size: 16px;
@@ -41,5 +56,3 @@ body {
   color: var(--branco);
   padding-top: 60px;
 }
-
-
