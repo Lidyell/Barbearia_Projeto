@@ -1,31 +1,29 @@
-import './CSS/Painel_Admin.css'
-import Navbar from '../components/Navbar/Navbar.tsx'
-import Footer from '../components/Footer/Footer'
-import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import "./CSS/Painel_Admin.css";
+
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Painel() {
-
-  const [nome, setNome] = useState<string>("")
-  const [mostrarTodos, setMostrarTodos] = useState(false)
-  const navigate = useNavigate()
+  const [nome, setNome] = useState<string>("");
+  const [mostrarTodos, setMostrarTodos] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const usuarioSalvo = localStorage.getItem("usuario")
+    const usuarioSalvo = localStorage.getItem("usuario");
 
     if (!usuarioSalvo) {
-      navigate("/login")
-      return
+      navigate("/login");
+      return;
     }
 
-    const usuario = JSON.parse(usuarioSalvo)
-    setNome(usuario.nome)
-  }, [])
+    const usuario = JSON.parse(usuarioSalvo);
+    setNome(usuario.nome);
+  }, []);
 
   const logout = () => {
-    localStorage.removeItem("usuario")
-    navigate("/login")
-  }
+    localStorage.removeItem("usuario");
+    navigate("/login");
+  };
 
   // 📊 DADOS (simulação)
   const dados = [
@@ -35,7 +33,7 @@ export default function Painel() {
       data: "12/01",
       hora: "14:00",
       profissional: "João",
-      status: "confirmado"
+      status: "confirmado",
     },
     {
       cliente: "Carlos Souza",
@@ -43,7 +41,7 @@ export default function Painel() {
       data: "12/01",
       hora: "15:00",
       profissional: "Pedro",
-      status: "pendente"
+      status: "pendente",
     },
     {
       cliente: "Lucas Lima",
@@ -51,16 +49,13 @@ export default function Painel() {
       data: "12/01",
       hora: "16:00",
       profissional: "João",
-      status: "confirmado"
-    }
-  ]
+      status: "confirmado",
+    },
+  ];
 
   return (
     <>
-      
-      <Navbar/>
       <section className="dashboard-container">
-
         {/* HEADER */}
         <div className="dashboard-header">
           <div className="header-left">
@@ -117,18 +112,23 @@ export default function Painel() {
               </thead>
 
               <tbody>
-                {(mostrarTodos ? dados : dados.slice(0, 1)).map((item, index) => (
-                  <tr key={index}>
-                    <td data-label="Cliente">{item.cliente}</td>
-                    <td data-label="Serviço">{item.servico}</td>
-                    <td data-label="Data">{item.data}</td>
-                    <td data-label="Hora">{item.hora}</td>
-                    <td data-label="Profissional">{item.profissional}</td>
-                    <td data-label="Status" className={`status ${item.status}`}>
-                      {item.status}
-                    </td>
-                  </tr>
-                ))}
+                {(mostrarTodos ? dados : dados.slice(0, 1)).map(
+                  (item, index) => (
+                    <tr key={index}>
+                      <td data-label="Cliente">{item.cliente}</td>
+                      <td data-label="Serviço">{item.servico}</td>
+                      <td data-label="Data">{item.data}</td>
+                      <td data-label="Hora">{item.hora}</td>
+                      <td data-label="Profissional">{item.profissional}</td>
+                      <td
+                        data-label="Status"
+                        className={`status ${item.status}`}
+                      >
+                        {item.status}
+                      </td>
+                    </tr>
+                  ),
+                )}
               </tbody>
             </table>
           </div>
@@ -144,11 +144,8 @@ export default function Painel() {
               </button>
             </div>
           )}
-
         </div>
-
       </section>
-      <Footer/>
     </>
-  )
+  );
 }

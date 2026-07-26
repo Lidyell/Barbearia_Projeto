@@ -1,5 +1,3 @@
-import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -20,7 +18,9 @@ function Login() {
     };
 
     try {
-      const response = await fetch("https://api-cadastro-dqny.onrender.com/usuario/login", {
+      const response = await fetch(
+        "https://api-cadastro-dqny.onrender.com/usuario/login",
+        {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -34,7 +34,6 @@ function Login() {
         localStorage.setItem("usuario", JSON.stringify(data));
         console.log("Login bem-sucedido:", data);
 
-  
         navigate("/painel");
       } else {
         alert("Email ou senha inválidos");
@@ -47,7 +46,6 @@ function Login() {
 
   return (
     <>
-      <Navbar />
       <section className="container-cadastro">
         <div className="cadastro-card">
           <h1 className="titulo-cadastro">Entre na sua conta</h1>
@@ -82,7 +80,7 @@ function Login() {
           </p>
         </div>
       </section>
-      <Footer />
+
     </>
   );
 }

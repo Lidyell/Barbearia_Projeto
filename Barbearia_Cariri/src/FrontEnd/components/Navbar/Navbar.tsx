@@ -16,7 +16,7 @@ function Navbar() {
 
       <nav>
         <div
-          className={`mobile-menu ${menuOpen ? "active" : ""}`}
+          className={`mobile-menu `}
           onClick={() => setMenuOpen(!menuOpen)}
         >
           <div className="line1"></div>
