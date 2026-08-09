@@ -141,7 +141,7 @@ A API utilizada pelo sistema foi desenvolvida utilizando **Java + Spring Boot**.
 
 ### Repositório da API
 
-https://github.com/Lidyell/API_CADASTRO
+https://github.com/Lidyell/API_BARBEARIA
 
 ---
 
@@ -179,10 +179,4 @@ O projeto possui:
 
 ## 👨‍💻 Autor
 
-Desenvolvido por **Lidyell Rocha**.
-
----
-
-## 📄 Licença
-
-Este projeto está sob a licença **MIT**.
+Desenvolvido por **Lidyell Rocha**
