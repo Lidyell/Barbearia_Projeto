@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Painel() {
   const [nome, setNome] = useState<string>("");
-  const [mostrarTodos, setMostrarTodos] = useState(false);
+  const [mostrarTodos, setMostrarTodos] = useState<boolean>(false);
   const navigate = useNavigate();
 
   useEffect(() => {

@@ -24,13 +24,8 @@ function Home() {
       {loading && <LoadingScreen />}
 
       <div className={`page ${loading ? "hidden" : "show"}`}>
-        
-        
         <Introduction />
         <Cards_Services />
-        
-        
-
       </div>
     </>
   );
