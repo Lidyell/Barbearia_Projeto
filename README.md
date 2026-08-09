@@ -1,153 +1,164 @@
-# 💈 Barbearia Castelo Branco
+💈 Barbearia Castelo Branco
 
-Projeto web moderno desenvolvido para gerenciamento e agendamento de serviços de uma barbearia. A aplicação oferece uma interface elegante e responsiva, proporcionando uma ótima experiência tanto para clientes quanto para administradores do estabelecimento.
+Projeto web moderno desenvolvido para gerenciamento e agendamento de serviços de uma barbearia. A aplicação oferece uma interface elegante e responsiva, proporcionando uma ótima experiência para clientes e administradores do estabelecimento.
 
----
+⚠️ Observação
 
-## ⚠️ Observação:
+Este projeto foi desenvolvido exclusivamente para fins de aprendizado e prática de novas tecnologias, não possuindo finalidade comercial ou objetivo financeiro.
 
-Este projeto foi desenvolvido exclusivamente para fins de aprendizado e prática de novas tecnologias, não possuindo qualquer finalidade comercial ou objetivo financeiro.
+🔗 Link do Projeto
 
-## 🔗 Link do Projeto:
 https://barbeariacariri.netlify.app/
 
-## 🚀 Funcionalidades
+🚀 Funcionalidades
 
-* 📅 Agendamento de horários (Em desenvolvimento)
-* 👤 Sistema de login e cadastro de usuários
-* 📊 Painel administrativo com dados de atendimentos (Em desenvolvimento
-* 📍 Integração com mapa (localização da barbearia)
-* 📱 Layout totalmente responsivo
-* 🔝 Botão de voltar ao topo (scroll)
-* 🎯 Interface moderna
+📅 Agendamento de horários (em desenvolvimento)
 
----
+👤 Sistema de login e cadastro de usuários
 
-## 🛠️ Tecnologias utilizadas
+📊 Painel administrativo com dados de atendimentos (em desenvolvimento)
 
-* React + TypeScript
-* Vite
-* CSS3 (com design responsivo)
-* React Router DOM
-* Java - Spring Boot
-* SupaBase - PostgreSQL
-* Deploy do Site - Netlify
+📍 Integração com mapa para localização da barbearia
 
----
+📱 Layout totalmente responsivo
 
-## 📂 Estrutura do projeto
+🔝 Botão de voltar ao topo (Scroll to Top)
 
-```
+🎯 Interface moderna e intuitiva
+
+🛠️ Tecnologias Utilizadas
+
+React + TypeScript
+
+Vite
+
+CSS3
+
+React Router DOM
+
+Java + Spring Boot
+
+Supabase + PostgreSQL
+
+Netlify para deploy do frontend
+
+📂 Estrutura do Projeto
+
 Barbearia_Cariri/
 │
 ├── public/
 │
 ├── src/
 │   ├── assets/
-│   │   ├── fonts/
+│   │
+│   ├── FrontEnd/
+│   │   ├── components/
+│   │   │   ├── Agendamento/
+│   │   │   ├── Cadastro/
+│   │   │   ├── Cards/
+│   │   │   ├── Footer/
+│   │   │   ├── Introduction/
+│   │   │   ├── LoadingScreen/
+│   │   │   ├── Navbar/
+│   │   │   └── ScrollToTop/
+│   │   │
+│   │   ├── Pages/
+│   │   │
+│   │   ├── Routes/
+│   │   │
+│   │   ├── App.css
+│   │   ├── App.tsx
+│   │   └── main.tsx
+│   │
 │
-│   ├── components/
-│   │   ├── Agendamento/
-│   │   ├── Cadastro/
-│   │   ├── Cards/
-│   │   ├── Footer/
-│   │   ├── Introduction/
-│   │   ├── LoadingScreen/
-│   │   ├── Navbar/
-│   │   ├── ScrollTop/
-│
-│   ├── pages/
-│
-│   ├── routes/
-        ├── CSS/
-│   │   ├── Routes.tsx
-│
-│   ├── App.tsx
-│   ├── main.tsx
-│
+├── .gitignore
+├── eslint.config.js
 ├── index.html
+├── netlify.toml
+├── package-lock.json
 ├── package.json
-├── vite.config.ts
-```
+├── README.md
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts
 
----
+⚙️ Como Rodar o Projeto
 
-## ⚙️ Como rodar o projeto
+1. Clone o repositório
 
-### 1. Clone o repositório
-
-```
 git clone https://github.com/Lidyell/Barbearia_Projeto.git
-```
 
-### 2. Acesse a pasta
+2. Acesse a pasta do projeto
 
-```
 cd Barbearia_Projeto
-```
 
-### 3. Instale as dependências
+3. Instale as dependências
 
-```
 npm install
-```
 
-### 4. Acesse a pasta
-```
-cd Barbearia_Cariri
-```
+4. Execute o projeto
 
-### 5. Rode o projeto
-
-```
 npm run dev
-```
 
----
+O projeto estará disponível no endereço fornecido pelo Vite, normalmente:
 
-## 🏗️ Build para produção
+http://localhost:5173
 
-```
+🏗️ Build para Produção
+
+Para gerar a versão otimizada do projeto:
+
 npm run build
-```
-## 🔗 API do Projeto
 
-A API deste sistema está em:
+Para visualizar a versão de produção localmente:
 
-👉 https://github.com/Lidyell/API_CADASTRO
+npm run preview
 
----
+🔗 API do Projeto
 
-## 🌐 Deploy
+A API utilizada pelo sistema foi desenvolvida utilizando Java + Spring Boot.
 
-O projeto pode ser hospedado facilmente utilizando plataformas como Netlify.
+Repositório da API
 
----
+https://github.com/Lidyell/API_BARBEARIA
 
-## 🎨 Design
+🌐 Deploy
 
-* Estilo moderno com tema escuro
-* Paleta baseada em dourado e preto (estilo premium)
-* Tipografia elegante (Playfair Display + Poppins)
-* Animações suaves e interações modernas
+O frontend do projeto está hospedado na Netlify.
 
----
+🔗 https://barbeariacariri.netlify.app/
 
-## 📌 Próximas melhorias
+🎨 Design
 
-* 🔗 Integração com backend (Spring Boot - Java)
-* 🗄️ Banco de dados para agendamentos reais (Supabase)
-* 📆 Calendário interativo
-* 📲 Integração com WhatsApp
+O projeto possui:
 
----
+🌑 Tema escuro
 
-## 👨‍💻 Autor
+🟡 Paleta baseada em dourado e preto
 
-Desenvolvido por **Lidyell Rocha**
+✨ Estilo premium e moderno
 
----
+🔤 Tipografia elegante
 
-## 📄 Licença
+🎞️ Animações e transições suaves
 
-Este projeto está sob a licença MIT.
+📱 Design responsivo para diferentes tamanhos de tela
+
+📌 Próximas Melhorias
+
+🔗 Integração completa com o backend em Spring Boot
+
+🗄️ Implementação do banco de dados para agendamentos
+
+📆 Calendário interativo para agendamentos
+
+📲 Integração com WhatsApp
+
+📊 Desenvolvimento do painel administrativo
+
+📅 Sistema completo de gerenciamento de horários
+
+👨‍💻 Autor
+
+Desenvolvido por Lidyell Rocha.
