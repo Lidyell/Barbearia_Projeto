@@ -1,4 +1,4 @@
-💈 Barbearia Castelo Branco
+# 💈 Barbearia Castelo Branco
 
 Projeto web moderno desenvolvido para gerenciamento e agendamento de serviços de uma barbearia. A aplicação oferece uma interface elegante e responsiva, proporcionando uma ótima experiência para clientes e administradores do estabelecimento.
 
