@@ -1,7 +1,7 @@
-import "./Agendamento.css";
+import "./Agenda.css";
 import { useState } from "react";
 
-function Agendamento() {
+function Agenda() {
   const [profissional, setProfissional] = useState<string>("");
   const [data, setData] = useState<string>("");
   const [horario, setHorario] = useState<string>("");
@@ -123,4 +123,5 @@ function Agendamento() {
   );
 }
 
-export default Agendamento;
+export default Agenda;
+export { Agenda as Agendamento };

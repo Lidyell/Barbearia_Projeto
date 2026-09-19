@@ -1,8 +1,8 @@
-import './CadastroTela.css'
+import './Cadastro.css';
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-function CadastroTela() {
+function Cadastro() {
 
     const [nome, setNome] = useState<string>("");
     const [email, setEmail] = useState<string>("");
@@ -74,7 +74,7 @@ function CadastroTela() {
                 </form>
 
                 <p className="login-link">
-                    Já tem uma conta? <Link to="/Login">Entrar</Link>
+                    Já tem uma conta? <Link to="/login">Entrar</Link>
                 </p>
 
             </div>
@@ -82,4 +82,5 @@ function CadastroTela() {
     )
 }
 
-export default CadastroTela;
+export default Cadastro;
+export { Cadastro as CadastroTela };

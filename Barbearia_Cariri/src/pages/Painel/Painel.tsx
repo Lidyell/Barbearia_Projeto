@@ -1,31 +1,33 @@
-import "./CSS/Painel_Admin.css";
+import "./Painel.css";
 
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Painel() {
-  const [nome, setNome] = useState<string>("");
+  const [nome] = useState<string>(() => {
+    const usuarioSalvo = localStorage.getItem("usuario");
+    if (!usuarioSalvo) return "";
+    try {
+      const usuario = JSON.parse(usuarioSalvo);
+      return usuario.nome || "";
+    } catch {
+      return "";
+    }
+  });
   const [mostrarTodos, setMostrarTodos] = useState<boolean>(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     const usuarioSalvo = localStorage.getItem("usuario");
-
     if (!usuarioSalvo) {
       navigate("/login");
-      return;
     }
-
-    const usuario = JSON.parse(usuarioSalvo);
-    setNome(usuario.nome);
-  }, []);
+  }, [navigate]);
 
   const logout = () => {
     localStorage.removeItem("usuario");
     navigate("/login");
   };
-
-  // 📊 DADOS (simulação)
   const dados = [
     {
       cliente: "João Silva",
@@ -56,7 +58,6 @@ export default function Painel() {
   return (
     <>
       <section className="dashboard-container">
-        {/* HEADER */}
         <div className="dashboard-header">
           <div className="header-left">
             <h1 className="dashboard-main-title">Painel de Controle</h1>
@@ -75,8 +76,6 @@ export default function Painel() {
             </button>
           </div>
         </div>
-
-        {/* CARDS */}
         <div className="dashboard-cards">
           <div className="card">
             <span>Agendamentos Hoje</span>
@@ -94,7 +93,7 @@ export default function Painel() {
           </div>
         </div>
 
-        {/* AGENDAMENTOS */}
+
         <div className="dashboard-section">
           <h2>Agendamentos Recentes</h2>
 
@@ -133,7 +132,6 @@ export default function Painel() {
             </table>
           </div>
 
-          {/* BOTÃO VER MAIS */}
           {dados.length > 1 && (
             <div className="ver-mais-container">
               <button

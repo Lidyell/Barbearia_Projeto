@@ -1,20 +1,21 @@
-import "../App.css";
-import Home from "../FrontEnd/Pages/Home.tsx";
-import Cadastro from "../FrontEnd/Pages/Cadastro.tsx";
-import {Routes, Route } from "react-router-dom";
-import Agenda from "../FrontEnd/Pages/Agenda.tsx";
-import Login from "../FrontEnd/components/Cadastro/Login.tsx";
-import Painel from "../FrontEnd/Pages/Painel.tsx";
+import { Routes, Route } from "react-router-dom";
+import Home from "../pages/Home/Home";
+import Cadastro from "../pages/Cadastro/Cadastro";
+import Agenda from "../pages/Agenda/Agenda";
+import Login from "../pages/Login/Login";
+import Painel from "../pages/Painel/Painel";
 
 export default function Router() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/Cadastro" element={<Cadastro />} />
       <Route path="/agenda" element={<Agenda />} />
+      <Route path="/cadastro" element={<Cadastro />} />
+      <Route path="/Cadastro" element={<Cadastro />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/Login" element={<Login />} />
-      <Route path="*" element={<h1>Erro 404: Página não encontrada!</h1>} />
       <Route path="/painel" element={<Painel />} />
+      <Route path="*" element={<h1>Erro 404: Página não encontrada!</h1>} />
     </Routes>
   );
 }

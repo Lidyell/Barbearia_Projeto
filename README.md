@@ -46,29 +46,34 @@ https://barbeariacariri.netlify.app/
 Barbearia_Cariri/
 │
 ├── public/
+│   └── image/
 │
 ├── src/
 │   ├── assets/
+│   │   ├── fonts/
+│   │   └── react.svg
 │   │
-│   ├── FrontEnd/
-│   │   ├── components/
-│   │   │   ├── Agendamento/
-│   │   │   ├── Cadastro/
-│   │   │   ├── Cards/
-│   │   │   ├── Footer/
-│   │   │   ├── Introduction/
-│   │   │   ├── LoadingScreen/
-│   │   │   ├── Navbar/
-│   │   │   └── ScrollToTop/
-│   │   │
-│   │   ├── Pages/
-│   │   │
-│   │   ├── Routes/
-│   │   │
-│   │   ├── App.css
-│   │   ├── App.tsx
-│   │   └── main.tsx
+│   ├── components/
+│   │   ├── Cards/
+│   │   ├── Footer/
+│   │   ├── Introduction/
+│   │   ├── LoadingScreen/
+│   │   ├── Navbar/
+│   │   └── ScrollToTop/
 │   │
+│   ├── pages/
+│   │   ├── Agenda/
+│   │   ├── Cadastro/
+│   │   ├── Home/
+│   │   ├── Login/
+│   │   └── Painel/
+│   │
+│   ├── routes/
+│   │   └── Routes.tsx
+│   │
+│   ├── App.css
+│   ├── App.tsx
+│   └── main.tsx
 │
 ├── .gitignore
 ├── eslint.config.js

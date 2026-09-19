@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-import "./CadastroTela.css";
+import "./Login.css";
 
 function Login() {
   const [email, setEmail] = useState<string>("");
@@ -54,7 +54,7 @@ function Login() {
             Faça login para agendar seus horários e aproveitar nossos planos.
           </p>
 
-          {/* 🔥 apenas adicionei onSubmit aqui */}
+
           <form className="form-cadastro" onSubmit={fazerLogin}>
             <input
               type="email"
@@ -76,7 +76,7 @@ function Login() {
           </form>
 
           <p className="login-link">
-            Primeiro acesso? <Link to="/Cadastro">Cadastre-se</Link>
+            Primeiro acesso? <Link to="/cadastro">Cadastre-se</Link>
           </p>
         </div>
       </section>

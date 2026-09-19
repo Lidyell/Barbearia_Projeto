@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
 
-import Introduction from "../components/Introduction/Introduction.tsx";
-import Cards_Services from "../components/Cards/Cards.tsx";
-import LoadingScreen from "../components/LoadingScreen/LoadingScreen.tsx";
+import Introduction from "../../components/Introduction/Introduction";
+import Cards_Services from "../../components/Cards/Cards";
+import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
 
 
 
