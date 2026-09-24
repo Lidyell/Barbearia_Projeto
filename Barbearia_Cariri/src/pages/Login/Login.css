@@ -116,6 +116,7 @@
     transform: scale(1.05);
     box-shadow: 0 0 0 1px rgba(211,175,55,0.5)
     ;
+    color: black
 }
 
 .login-link {
@@ -128,6 +129,7 @@
     color: var(--dourado);
     font-weight: 700;
     text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .login-link a:hover {

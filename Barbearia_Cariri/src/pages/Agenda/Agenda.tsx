@@ -41,7 +41,7 @@ function Agenda() {
       <div className="agendamento-card">
         <header className="agendamento-header">
           <h1>Agendar serviço</h1>
-          <p>Preencha os dados para confirmar seu horário</p>
+          <p>Preencha os dados para marcar o horário</p>
         </header>
 
         <form className="agendamento-form">

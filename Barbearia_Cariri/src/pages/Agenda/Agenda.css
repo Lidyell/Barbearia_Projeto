@@ -9,9 +9,9 @@
 }
 
 .agendamento-card {
+  background: linear-gradient(180deg, #111, #0b0b0b);
   width: 100%;
   max-width: 520px;
-  background: rgba(28, 28, 28, 0.95);
   border-radius: 20px;
   padding: 40px 35px;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
@@ -51,6 +51,7 @@
   font-size: 14px;
   color: #c9a24d;
   font-weight: bold;
+  margin: 5px;
 }
 
 .form-group input,
