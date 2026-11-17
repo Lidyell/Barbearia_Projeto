@@ -1,149 +1,204 @@
-import "./Painel.css";
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'sonner';
+import {
+  DollarSign,
+  Scissors,
+  TrendingUp,
+  Users,
+  Percent,
+  XCircle,
+  AlertCircle,
+} from 'lucide-react';
 
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import './Painel.css';
+import type { DashboardFiltersState } from './types/dashboard.types';
+import { useDashboard } from './hooks/useDashboard';
+import { DashboardHeader } from './components/DashboardHeader';
+import { DashboardFilters } from './components/DashboardFilters';
+import { KpiCard } from './components/KpiCard';
+import { RevenueChart } from './components/RevenueChart';
+import { AppointmentsChart } from './components/AppointmentsChart';
+import { ServicesChart } from './components/ServicesChart';
+import { BarberRanking } from './components/BarberRanking';
+import { ManagementInsights } from './components/ManagementInsights';
+import { RecentAppointmentsTable } from './components/RecentAppointmentsTable';
+import { formatCurrency } from './utils/dashboardCalculations';
 
 export default function Painel() {
-  const [nome] = useState<string>(() => {
-    const usuarioSalvo = localStorage.getItem("usuario");
-    if (!usuarioSalvo) return "";
-    try {
-      const usuario = JSON.parse(usuarioSalvo);
-      return usuario.nome || "";
-    } catch {
-      return "";
-    }
-  });
-  const [mostrarTodos, setMostrarTodos] = useState<boolean>(false);
   const navigate = useNavigate();
 
+  // 1. Controle de Usuário e Autenticação
+  const [userName] = useState<string>(() => {
+    const usuarioSalvo = localStorage.getItem('usuario');
+    if (!usuarioSalvo) return 'Administrador';
+    try {
+      const usuario = JSON.parse(usuarioSalvo);
+      return usuario.nome || 'Administrador';
+    } catch {
+      return 'Administrador';
+    }
+  });
+
   useEffect(() => {
-    const usuarioSalvo = localStorage.getItem("usuario");
+    const usuarioSalvo = localStorage.getItem('usuario');
     if (!usuarioSalvo) {
-      navigate("/login");
+      navigate('/login');
     }
   }, [navigate]);
 
-  const logout = () => {
-    localStorage.removeItem("usuario");
-    navigate("/login");
+  const handleLogout = () => {
+    localStorage.removeItem('usuario');
+    toast.info('Sessão encerrada com sucesso.');
+    navigate('/login');
   };
-  const dados = [
-    {
-      cliente: "João Silva",
-      servico: "Corte de cabelo",
-      data: "12/01",
-      hora: "14:00",
-      profissional: "João",
-      status: "confirmado",
-    },
-    {
-      cliente: "Carlos Souza",
-      servico: "Barba",
-      data: "12/01",
-      hora: "15:00",
-      profissional: "Pedro",
-      status: "pendente",
-    },
-    {
-      cliente: "Lucas Lima",
-      servico: "Corte + Barba",
-      data: "12/01",
-      hora: "16:00",
-      profissional: "João",
-      status: "confirmado",
-    },
-  ];
+
+  // 2. Estado Global de Filtros
+  const [filters, setFilters] = useState<DashboardFiltersState>({
+    period: 'last_30_days',
+    barberId: 'all',
+  });
+
+  // 3. Hook do Dashboard com React Query + Supabase
+  const {
+    isLoading,
+    isError,
+    refetch,
+    barbers,
+    kpis,
+    revenueEvolution,
+    appointmentsByDay,
+    appointmentsByHour,
+    barberRanking,
+    servicesDistribution,
+    insights,
+    recentAppointments,
+  } = useDashboard(filters);
+
+  const [isRefreshing, setIsRefreshing] = useState(false);
+
+  const handleRefresh = async () => {
+    setIsRefreshing(true);
+    await refetch();
+    setTimeout(() => {
+      setIsRefreshing(false);
+      toast.success('Dados atualizados com sucesso!');
+    }, 400);
+  };
 
   return (
-    <>
-      <section className="dashboard-container">
-        <div className="dashboard-header">
-          <div className="header-left">
-            <h1 className="dashboard-main-title">Painel de Controle</h1>
+    <div className="dashboard-wrapper">
+      <div className="dashboard-content-container">
+        {/* Cabeçalho */}
+        <DashboardHeader
+          userName={userName}
+          onLogout={handleLogout}
+          onRefresh={handleRefresh}
+          isRefreshing={isRefreshing}
+        />
+
+        {/* Barra de Filtros Globais */}
+        <DashboardFilters
+          filters={filters}
+          onChange={setFilters}
+          barbers={barbers}
+        />
+
+        {/* Indicador de Carregamento Ativo */}
+        {isLoading && (
+          <div className="dash-loading-bar">
+            <div className="dash-loading-indicator" />
           </div>
+        )}
 
-          <div className="header-right">
-            <div className="user-info">
-              <span className="user-avatar">
-                {nome?.charAt(0).toUpperCase()}
-              </span>
-              <span className="user-name">{nome}</span>
-            </div>
-
-            <button onClick={logout} className="btn-logout">
-              Sair
-            </button>
+        {/* Estado de Erro de Conexão */}
+        {isError && (
+          <div className="dash-error-banner">
+            <AlertCircle size={20} />
+            <span>
+              Houve uma instabilidade ao conectar ao Supabase. Exibindo dados de cache seguros.
+            </span>
           </div>
-        </div>
-        <div className="dashboard-cards">
-          <div className="card">
-            <span>Agendamentos Hoje</span>
-            <h5>12</h5>
-          </div>
+        )}
 
-          <div className="card">
-            <span>Faturamento Mensal</span>
-            <h5>R$ 2.450</h5>
-          </div>
+        {/* 1. SEÇÃO DE KPIS PRINCIPAIS */}
+        <section className="dash-kpis-grid">
+          <KpiCard
+            title="Faturamento Total"
+            value={formatCurrency(kpis.totalRevenue)}
+            growth={kpis.revenueGrowth}
+            icon={<DollarSign size={20} className="text-gold" />}
+            subtitle="Receita líquida realizada no período"
+          />
 
-          <div className="card">
-            <span>Clientes Atendidos</span>
-            <h5>86</h5>
-          </div>
-        </div>
+          <KpiCard
+            title="Atendimentos Concluídos"
+            value={kpis.totalAppointments}
+            growth={kpis.appointmentsGrowth}
+            icon={<Scissors size={20} className="text-gold" />}
+            subtitle="Clientes efetivamente atendidos"
+          />
 
+          <KpiCard
+            title="Ticket Médio"
+            value={formatCurrency(kpis.averageTicket)}
+            growth={kpis.ticketGrowth}
+            icon={<TrendingUp size={20} className="text-gold" />}
+            subtitle="Gasto médio por cliente"
+          />
 
-        <div className="dashboard-section">
-          <h2>Agendamentos Recentes</h2>
+          <KpiCard
+            title="Barbeiros Ativos"
+            value={`${kpis.activeBarbersCount} profissionais`}
+            icon={<Users size={20} className="text-gold" />}
+            subtitle="Equipe disponível na barbearia"
+          />
 
-          <div className="table-wrapper">
-            <table className="dashboard-table">
-              <thead>
-                <tr>
-                  <th>Cliente</th>
-                  <th>Serviço</th>
-                  <th>Data</th>
-                  <th>Hora</th>
-                  <th>Profissional</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
+          <KpiCard
+            title="Taxa de Ocupação"
+            value={`${kpis.occupancyRate}%`}
+            icon={<Percent size={20} className="text-gold" />}
+            subtitle="Capacidade produtiva utilizada"
+          />
 
-              <tbody>
-                {(mostrarTodos ? dados : dados.slice(0, 1)).map(
-                  (item, index) => (
-                    <tr key={index}>
-                      <td data-label="Cliente">{item.cliente}</td>
-                      <td data-label="Serviço">{item.servico}</td>
-                      <td data-label="Data">{item.data}</td>
-                      <td data-label="Hora">{item.hora}</td>
-                      <td data-label="Profissional">{item.profissional}</td>
-                      <td
-                        data-label="Status"
-                        className={`status ${item.status}`}
-                      >
-                        {item.status}
-                      </td>
-                    </tr>
-                  ),
-                )}
-              </tbody>
-            </table>
-          </div>
+          <KpiCard
+            title="Cancelamentos"
+            value={`${kpis.cancellationsCount} (${kpis.cancellationRate.toFixed(1)}%)`}
+            growth={kpis.cancellationRate}
+            isInverse={true}
+            icon={<XCircle size={20} className="text-red" />}
+            subtitle="Taxa sobre total de agendamentos"
+          />
+        </section>
 
-          {dados.length > 1 && (
-            <div className="ver-mais-container">
-              <button
-                className="ver-mais-btn"
-                onClick={() => setMostrarTodos(!mostrarTodos)}
-              >
-                {mostrarTodos ? "Ver menos ↑" : "Ver mais ↓"}
-              </button>
-            </div>
-          )}
-        </div>
-      </section>
-    </>
+        {/* 2. GRÁFICOS PRINCIPAIS: FATURAMENTO & FLUXO */}
+        <section className="dash-charts-grid">
+          <RevenueChart data={revenueEvolution} />
+          <AppointmentsChart
+            byDayOfWeek={appointmentsByDay}
+            byHour={appointmentsByHour}
+          />
+        </section>
+
+        {/* 3. DISTRIBUIÇÃO DE SERVIÇOS & RANKING DE BARBEIROS */}
+        <section className="dash-two-cols-grid">
+          <ServicesChart data={servicesDistribution} />
+          <BarberRanking
+            ranking={barberRanking}
+            totalRevenue={kpis.totalRevenue}
+          />
+        </section>
+
+        {/* 4. INTELIGÊNCIA & INSIGHTS GERENCIAIS */}
+        <section className="dash-insights-section">
+          <ManagementInsights insights={insights} />
+        </section>
+
+        {/* 5. TABELA DE AGENDAMENTOS RECENTES */}
+        <section className="dash-table-section">
+          <RecentAppointmentsTable appointments={recentAppointments} />
+        </section>
+      </div>
+    </div>
   );
 }

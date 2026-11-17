@@ -1,0 +1,150 @@
+.manifesto-section {
+  width: 100%;
+  padding: clamp(60px, 8vw, 100px) 20px;
+  position: relative;
+  background: radial-gradient(circle at 50% 50%, rgba(201, 162, 77, 0.05) 0%, rgba(9, 9, 9, 0.98) 75%);
+}
+
+.manifesto-container {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.manifesto-card {
+  position: relative;
+  background: linear-gradient(145deg, rgba(22, 22, 22, 0.85), rgba(12, 12, 12, 0.95));
+  border: 1px solid rgba(201, 162, 77, 0.35);
+  border-radius: 28px;
+  padding: clamp(36px, 5vw, 60px) clamp(24px, 5vw, 56px);
+  text-align: center;
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.8),
+    0 0 35px rgba(201, 162, 77, 0.12);
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.manifesto-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(201, 162, 77, 0.12);
+  border: 1px solid rgba(201, 162, 77, 0.35);
+  padding: 5px 16px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--dourado-claro);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.manifesto-quote-mark {
+  font-family: var(--fonte-destaque);
+  font-size: clamp(3.5rem, 6vw, 5rem);
+  line-height: 0.8;
+  color: var(--dourado);
+  opacity: 0.6;
+  margin-top: 6px;
+  user-select: none;
+}
+
+.manifesto-quote {
+  font-family: var(--fonte-destaque);
+  font-size: clamp(1.15rem, 2.2vw, 1.6rem);
+  line-height: 1.65;
+  color: #f3f4f6;
+  font-style: italic;
+  max-width: 820px;
+  margin: 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.manifesto-divider {
+  width: 80px;
+  height: 2px;
+  background: var(--gradiente-dourado);
+  margin: 10px 0;
+  border-radius: 999px;
+}
+
+.manifesto-signature-block {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-align: left;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.signature-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(201, 162, 77, 0.15);
+  border: 1px solid rgba(201, 162, 77, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dourado-claro);
+  box-shadow: 0 4px 15px rgba(201, 162, 77, 0.2);
+}
+
+.signature-text-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.signature-brand {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  font-family: var(--fonte-logo);
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.signature-role {
+  font-size: 0.82rem;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.signature-tags {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+
+.signature-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--dourado-claro);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+@media (max-width: 640px) {
+  .manifesto-card {
+    padding: 30px 20px;
+  }
+
+  .manifesto-signature-block {
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .signature-tags {
+    justify-content: center;
+  }
+}

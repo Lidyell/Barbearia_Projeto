@@ -1,0 +1,271 @@
+.localizacao-section {
+  width: 100%;
+  padding: clamp(60px, 8vw, 100px) 20px;
+  position: relative;
+  background: linear-gradient(180deg, rgba(8, 8, 8, 0.95) 0%, rgba(13, 13, 13, 0.9) 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.localizacao-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(30px, 5vw, 60px);
+  align-items: center;
+}
+
+/* LADO ESQUERDO */
+.localizacao-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.info-cards-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 6px;
+}
+
+.info-card {
+  display: flex;
+  gap: 14px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+}
+
+.info-card-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(201, 162, 77, 0.12);
+  border: 1px solid rgba(201, 162, 77, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dourado-claro);
+  flex-shrink: 0;
+}
+
+.info-card-text h4 {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 3px;
+}
+
+.info-card-text p {
+  font-size: 0.84rem;
+  color: #d1d5db;
+  margin-bottom: 2px;
+}
+
+.info-card-text small {
+  font-size: 0.72rem;
+  color: var(--cinza-texto);
+}
+
+/* HORÁRIOS DE FUNCIONAMENTO */
+.horarios-card {
+  background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(10, 10, 10, 0.95));
+  border: 1px solid rgba(201, 162, 77, 0.25);
+  border-radius: 18px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.horarios-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--dourado-claro);
+}
+
+.clock-icon {
+  color: var(--dourado);
+}
+
+.horarios-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.horario-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.horario-item.is-hoje {
+  background: rgba(201, 162, 77, 0.14);
+  border: 1px solid rgba(201, 162, 77, 0.35);
+  font-weight: 700;
+}
+
+.horario-dia {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #e5e5e5;
+}
+
+.hoje-badge {
+  font-size: 0.68rem;
+  background: var(--gradiente-dourado);
+  color: #0b0b0b;
+  padding: 2px 7px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.horario-hora {
+  color: #fff;
+  font-weight: 600;
+}
+
+.horario-hora.fechado {
+  color: #ef4444;
+}
+
+/* BOTÕES DE AÇÃO */
+.localizacao-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 6px;
+}
+
+.btn-whatsapp-direto {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 24px;
+  background: #25d366;
+  color: #000;
+  font-size: 0.92rem;
+  font-weight: 700;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp-direto:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45);
+}
+
+.btn-como-chegar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 0.92rem;
+  font-weight: 600;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.btn-como-chegar:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--dourado);
+  color: var(--dourado-claro);
+  transform: translateY(-2px);
+}
+
+/* LADO DIREITO: MAPA */
+.localizacao-mapa-wrap {
+  width: 100%;
+}
+
+.mapa-frame {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(201, 162, 77, 0.35);
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(201, 162, 77, 0.15);
+}
+
+.mapa-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+.mapa-badge-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(12, 12, 12, 0.9);
+  border: 1px solid rgba(201, 162, 77, 0.35);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--dourado-claro);
+  backdrop-filter: blur(10px);
+}
+
+.mapa-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--dourado);
+}
+
+@media (max-width: 992px) {
+  .localizacao-container {
+    grid-template-columns: 1fr;
+  }
+
+  .mapa-frame {
+    height: 380px;
+  }
+}
+
+@media (max-width: 640px) {
+  .localizacao-section {
+    padding: 50px 16px;
+  }
+
+  .info-cards-group {
+    grid-template-columns: 1fr;
+  }
+
+  .localizacao-actions {
+    flex-direction: column;
+  }
+
+  .btn-whatsapp-direto,
+  .btn-como-chegar {
+    width: 100%;
+    justify-content: center;
+  }
+}

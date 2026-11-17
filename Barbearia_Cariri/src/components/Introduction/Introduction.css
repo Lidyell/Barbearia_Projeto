@@ -1,136 +1,403 @@
-/* IMPORT DAS FONTES */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap');
-
-/* ROOT (caso não tenha) */
-:root {
-  --dourado: #d3af37;
-  --dourado-metalico: #ffd700;
-  --fonte-titulo: 'Playfair Display', serif;
-  --fonte-texto: 'Poppins', sans-serif;
+.hero-section {
+  width: 100%;
+  padding: clamp(40px, 6vw, 90px) 20px 60px;
+  position: relative;
+  overflow: hidden;
 }
 
-/* BLOCO PRINCIPAL */
-.bloco {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: clamp(40px, 6vw, 80px) 20px;
+.hero-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: clamp(30px, 5vw, 60px);
 }
 
-/* CONTAINER */
-.container_1 {
-  width: 100%;
-  max-width: 1200px;
+/* LADO ESQUERDO: CONTEÚDO */
+.hero-content {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 22px;
 }
 
-/* CARD TEXTO */
-.bloco_1 {
-  background: linear-gradient(
-    135deg,
-    rgba(0, 0, 0, 0.75),
-    rgba(20, 20, 20, 0.9)
-  );
-  padding: clamp(28px, 4vw, 48px);
-  border-radius: 24px;
-  line-height: 1.8;
-  font-family: var(--fonte-texto);
-  width: 100%;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  padding: 6px 16px;
+  background: rgba(201, 162, 77, 0.12);
+  border: 1px solid rgba(201, 162, 77, 0.35);
+  border-radius: 999px;
+  color: var(--dourado-claro);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(201, 162, 77, 0.25);
-  transition: transform 0.3s ease;
 }
 
-.bloco_1:hover {
-  transform: translateY(-5px);
-}
-
-/* TÍTULO */
-.bloco h1 {
-  font-size: clamp(26px, 4vw, 36px);
-  margin-bottom: 16px;
-  font-family: var(--fonte-texto);
+.hero-badge-icon {
   color: var(--dourado);
-  letter-spacing: 1px;
 }
 
-/* SUBTÍTULO */
-.bloco h3 {
-  font-family: var(--fonte-texto);
-  font-weight: 500;
-  margin-bottom: 16px;
-  color: rgba(255,255,255,0.85);
+.hero-title {
+  font-size: clamp(2.3rem, 4.5vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+  letter-spacing: -0.02em;
 }
 
-/* PARÁGRAFO */
-.bloco p {
-  color: rgba(255, 255, 255, 0.85);
+.hero-title-gradient {
+  background: var(--gradiente-dourado);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.hero-description {
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  color: var(--cinza-texto);
+  line-height: 1.7;
+  max-width: 580px;
+}
+
+/* BOTÕES DE CTA */
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 6px;
+}
+
+.hero-btn-primary {
+  padding: 15px 30px;
   font-size: 1rem;
 }
 
-/* BOTÃO */
-.bloco .btn-1 {
-  display: inline-block;
-  padding: 14px 30px;
-  background: linear-gradient(135deg, var(--dourado), var(--dourado-metalico));
-  color: #000;
-  font-weight: 700;
-  text-decoration: none;
-  border-radius: 50px;
-  margin-top: 24px;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 25px rgba(201, 162, 77, 0.4);
+.hero-btn-secondary {
+  padding: 14px 26px;
+  font-size: 1rem;
 }
 
-.bloco .btn-1:hover {
-  transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 18px 40px rgba(201, 162, 77, 0.6);
-  color: white
+/* PERKS RÁPIDOS */
+.hero-perks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 4px;
 }
 
-/* MAPA */
-.Maps {
+.perk-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.perk-icon {
+  color: var(--dourado);
+}
+
+/* PROVA SOCIAL / STATS */
+.hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding-top: 24px;
+  margin-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stat-stars {
+  display: flex;
+  gap: 3px;
+}
+
+.stat-number {
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  font-weight: 800;
+  color: var(--dourado-claro);
+  line-height: 1.2;
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  color: var(--cinza-texto);
+  font-weight: 500;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* LADO DIREITO: CARD VISUAL */
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-card-frame {
+  position: relative;
   width: 100%;
-  height: 260px;
-  border-radius: 24px;
-  border: none;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  max-width: 480px;
+  border-radius: 28px;
+  padding: 12px;
+  background: linear-gradient(145deg, rgba(30, 30, 30, 0.7), rgba(15, 15, 15, 0.9));
+  border: 1px solid rgba(201, 162, 77, 0.3);
+  box-shadow: 
+    0 30px 60px rgba(0, 0, 0, 0.8),
+    0 0 35px rgba(201, 162, 77, 0.15);
+  backdrop-filter: blur(12px);
 }
 
-/* RESPONSIVO */
-@media (min-width: 768px) {
+.hero-card-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  border-radius: 20px;
+  overflow: hidden;
+}
 
-  .container_1 {
-    flex-direction: row;
-    align-items: stretch;
-    gap: 40px;
+.hero-main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-card-frame:hover .hero-main-image {
+  transform: scale(1.04);
+}
+
+.hero-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.4) 60%,
+    rgba(11, 11, 11, 0.95) 100%
+  );
+}
+
+/* BADGE STATUS ABERTO */
+.floating-badge-status {
+  position: absolute;
+  top: 28px;
+  left: 28px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  background: rgba(15, 15, 15, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.pulse-dot {
+  width: 9px;
+  height: 9px;
+  background-color: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: pulseGreen 2s infinite;
+}
+
+@keyframes pulseGreen {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
   }
-
-  .bloco_1,
-  .Maps {
-    width: 50%;
+  70% {
+    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
   }
-
-  .Maps {
-    height: auto;
-    min-height: 420px;
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
   }
 }
 
-/* MOBILE FINO */
-@media (max-width: 480px) {
-  .bloco_1 {
-    padding: 24px;
+.status-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.status-text strong {
+  font-size: 0.82rem;
+  color: #ffffff;
+}
+
+.status-text small {
+  font-size: 0.7rem;
+  color: #a3a3a3;
+}
+
+/* BADGE VIP FLUTUANTE */
+.floating-badge-vip {
+  position: absolute;
+  bottom: 85px;
+  right: -15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  background: linear-gradient(135deg, rgba(25, 25, 25, 0.95), rgba(15, 15, 15, 0.95));
+  border: 1px solid rgba(201, 162, 77, 0.4);
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(12px);
+  animation: floatSubtle 4s ease-in-out infinite;
+}
+
+@keyframes floatSubtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.vip-icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(201, 162, 77, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dourado-claro);
+  border: 1px solid rgba(201, 162, 77, 0.3);
+}
+
+.vip-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.vip-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--dourado-claro);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.vip-subtitle {
+  font-size: 0.78rem;
+  color: #d1d5db;
+}
+
+/* FOOTER DO CARD VISUAL */
+.hero-card-footer {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  padding: 14px 18px;
+  background: rgba(12, 12, 12, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  backdrop-filter: blur(10px);
+}
+
+.footer-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--dourado-claro);
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.footer-text {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  margin: 0;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 992px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
   }
 
-  .bloco h1 {
-    font-size: 24px;
+  .hero-content {
+    align-items: center;
   }
 
-  .bloco p {
-    font-size: 0.95rem;
+  .hero-badge {
+    margin: 0 auto;
+  }
+
+  .hero-description {
+    margin: 0 auto;
+  }
+
+  .hero-cta-group {
+    justify-content: center;
+  }
+
+  .hero-perks {
+    justify-content: center;
+  }
+
+  .hero-stats {
+    justify-content: center;
+  }
+
+  .hero-card-frame {
+    max-width: 440px;
+    margin: 20px auto 0;
+  }
+
+  .floating-badge-vip {
+    right: 15px;
+    bottom: 80px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-section {
+    padding: 30px 16px 40px;
+  }
+
+  .hero-card-image-wrapper {
+    height: 380px;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .stat-divider {
+    display: none;
+  }
+
+  .floating-badge-vip {
+    display: none;
   }
 }

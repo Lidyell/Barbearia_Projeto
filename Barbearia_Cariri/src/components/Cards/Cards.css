@@ -1,104 +1,268 @@
-
-.container-1 {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    padding: 80px 20px;
-    background-color: rgba(0, 0, 0, 0.75);
-
+.servicos-section {
+  width: 100%;
+  padding: clamp(60px, 8vw, 100px) 20px;
+  position: relative;
+  background-color: rgba(9, 9, 9, 0.96);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.titulo-services {
-    font-size: 2.4rem;
-    font-family: var(--fonte-logo);
-    color: var(--dourado);
-    text-align: center;
-    font-weight: 800;
+.servicos-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
 }
 
+.section-title-wrap {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* FILTROS DE CATEGORIA */
+.categorias-filtro {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.cat-pill-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--cinza-texto);
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.cat-pill-btn:hover {
+  background: rgba(255, 255, 255, 0.09);
+  color: #fff;
+  border-color: rgba(201, 162, 77, 0.4);
+}
+
+.cat-pill-btn.active {
+  background: var(--gradiente-dourado);
+  color: #0b0b0b;
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(201, 162, 77, 0.35);
+  font-weight: 700;
+}
+
+/* GRID DE SERVIÇOS */
 .bloco-services {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    padding: 48px;
-    border-radius: 18px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 26px;
+  width: 100%;
 }
 
 .item-service {
-    width: 280px;
-    height: 240px;
-    border: 2px solid var(--dourado);
-    border-radius: 18px;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-    color: white;
-    text-align: center;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    font-weight: bold;
-    background-color: rgba(0, 0, 0, 0.55);
-    background-blend-mode: overlay;
-    font-family: var(--fonte-texto);
-}
-
-#Corte {
-    background-image: url(https://img.freepik.com/fotos-premium/o-processo-de-corte-de-cabelo-masculino-em-uma-barbearia-estilosa_199683-145.jpg);
-    background-size: cover;
-    background-position: center;
-}
-
-#Barba {
-    background-image: url(https://pellecapelli.com.br/wp-content/uploads/2020/03/capa-barba.jpg);
-    background-size: cover;
-    background-position: center;
-}
-
-#CorteBarba {
-    background-image: url(https://alfalooksstore.com.br/wp-content/uploads/2020/09/como-fazer-barba.jpg);
-    background-size: cover;
-    background-position: center;
-}
-
-#CabeloInfantil {
-    background-image: url(https://s2.glbimg.com/WHTl_jXX9HAdlPfJSgEgOTydLQw=/620x480/e.glbimg.com/og/ed/f/original/2020/04/27/gettyimages-180981325.jpg);
-    background-size: cover;
-    background-position: center;
-}
-
-#Sobrancelha {
-    background-image: url(https://img.freepik.com/fotos-gratis/de-cima-maos-barbeando-homem_23-2147778913.jpg);
-    background-size: cover;
-    background-position: center;
-}
-
-#DescolorirCabelo {
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx6az03pstPYNUZC3DvAmb7dPVv0tVcS8Jtg&s);
-    background-size: cover;
-    background-position: center;
-}
-
-.item-service h2 {
-    font-size: 1.4rem;
-    font-weight: 700;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-}
-
-.item-service p {
-    font-size: 1.2rem;
-    color: var(--dourado);
-    font-weight: 800;
+  position: relative;
+  height: 330px;
+  border: 1px solid rgba(201, 162, 77, 0.22);
+  border-radius: 22px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
 }
 
 .item-service:hover {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 12px 30px rgba(201, 162, 77, 0.4);
-    opacity: 0.85;
+  transform: translateY(-8px);
+  border-color: var(--dourado-claro);
+  box-shadow: 
+    0 22px 45px rgba(0, 0, 0, 0.8),
+    0 0 25px rgba(201, 162, 77, 0.25);
+}
+
+.service-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(10, 10, 10, 0.6) 45%,
+    rgba(8, 8, 8, 0.98) 95%
+  );
+  transition: background 0.3s ease;
+}
+
+.item-service:hover .service-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(10, 10, 10, 0.5) 40%,
+    rgba(6, 6, 6, 0.98) 92%
+  );
+}
+
+/* BADGE POPULAR */
+.service-popular-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #e11d48, #be123c);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(225, 29, 72, 0.4);
+}
+
+/* CONTEÚDO DO CARD */
+.service-card-content {
+  position: relative;
+  z-index: 2;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.service-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.service-icon-pill {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(201, 162, 77, 0.15);
+  border: 1px solid rgba(201, 162, 77, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dourado-claro);
+  backdrop-filter: blur(8px);
+}
+
+.service-duration {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--cinza-texto);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 4px 10px;
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+}
+
+.service-name {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.service-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.service-price-box {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+}
+
+.price-currency {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--dourado-claro);
+}
+
+.price-value {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.service-btn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--gradiente-dourado);
+  color: #0b0b0b;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(201, 162, 77, 0.3);
+}
+
+.service-btn-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(201, 162, 77, 0.5);
+  color: #000;
+}
+
+/* RODAPÉ DA SEÇÃO */
+.servicos-footer-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  padding: 16px 24px;
+  background: rgba(201, 162, 77, 0.06);
+  border: 1px solid rgba(201, 162, 77, 0.2);
+  border-radius: 14px;
+  color: var(--cinza-claro);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.note-icon {
+  color: var(--dourado-claro);
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .servicos-section {
+    padding: 50px 16px;
+  }
+
+  .bloco-services {
+    grid-template-columns: 1fr;
+  }
+
+  .item-service {
+    height: 300px;
+  }
 }

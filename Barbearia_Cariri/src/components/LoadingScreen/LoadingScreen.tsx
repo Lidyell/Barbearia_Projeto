@@ -1,11 +1,18 @@
-import "./LoadingScreen.css";
+import { Scissors } from 'lucide-react';
+import './LoadingScreen.css';
 
 function LoadingScreen() {
   return (
     <div className="loading-screen">
       <div className="loader">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTieK0zGbIgd8PM3DvZhHmMw2hyvXiKW-2Rkg&s" alt="" />
-        <h1>Barbearia Castelo Branco</h1>
+        <div className="loader-icon-box">
+          <Scissors size={32} className="loader-scissors" />
+        </div>
+        <h1 className="loader-title">Barbearia Castelo Branco</h1>
+        <p className="loader-sub">Tradição & Estilo no Cariri</p>
+        <div className="bar">
+          <div className="bar-progress" />
+        </div>
       </div>
     </div>
   );
